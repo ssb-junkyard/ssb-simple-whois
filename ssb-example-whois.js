@@ -54,19 +54,19 @@ function processAboutMsg (msg) {
     return
 
   // only process self-assignments
-  var link = mlib.link(msg.value.content.about, 'feed')
-  if (link.link !== msg.value.author)
+  var target = mlib.link(c.about, 'feed')
+  if (!target || target.link !== msg.value.author)
     return
 
   // remove any past assignments by this user
   for (var k in _names)
-    _names[k] = _names[k].filter(function (entry) { return entry.id !== link.link })
+    _names[k] = _names[k].filter(function (entry) { return entry.id !== target.link })
 
   // store the new assignment
   var name = makeNameSafe(c.name)
   _names[name] = _names[name] || []
   _names[name].push({
-    id:    link.link,
+    id:    target.link,
     name:  name,
     trust: rateTrust(msg)
   })
