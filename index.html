@@ -1,0 +1,224 @@
+<html>
+    <head>
+    <title>Example "Whois" - Scuttlebot - SSBC</title>
+    <link rel="stylesheet" href="/normalize.css">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/atelier-forest-light.css">
+    <script src="/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </head>
+    <body>
+      <div id="topnav">
+    <div id="topnav-inner">
+      <a class="topnav-item " href="/" title="Home">
+      Home<br><small>SSBC</small>
+    </a>
+      <a class="topnav-item " href="/patchwork" title="Patchwork">
+      Patchwork<br><small>Social App</small>
+    </a>
+      <a class="topnav-item selected" href="/scuttlebot" title="Scuttlebot">
+      Scuttlebot<br><small>P2P Log Store</small>
+    </a>
+      <a class="topnav-item " href="/docs" title="Documentation">
+      Documentation<br><small>APIs, Articles</small>
+    </a>
+    </div>
+  </div>
+      <div id="layout">
+        <div id="leftnav">
+      <div class="leftnav-item ">
+      <a href="/scuttlebot" title="Scuttlebot">Scuttlebot</a>
+    </div>
+      <div class="leftnav-subitems">
+        <div class="leftnav-item ">
+      <a href="/docs/scuttlebot/install.html" title="Install">Install</a>
+    </div>
+        <div class="leftnav-item ">
+      <a href="/docs/scuttlebot/tutorial.html" title="Tutorial">Tutorial</a>
+    </div>
+        <div class="leftnav-item ">
+      <a href="/docs/api/scuttlebot.html" title="API / CLI Reference">API / CLI Reference</a>
+    </div>
+      </div>
+      <div class="leftnav-item">Examples</div>
+      <div class="leftnav-subitems">
+        <div class="leftnav-item ">
+      <a href="/ssb-blessed-dashboard" title="Blessed Dashboard">Blessed Dashboard</a>
+    </div>
+        <div class="leftnav-item selected">
+      <a href="/ssb-example-whois" title="Example "Whois"">Example "Whois"</a>
+    </div>
+        <div class="leftnav-item ">
+      <a href="/ssb-example-pm" title="Private Message">Private Message</a>
+    </div>
+      </div>
+      <div class="leftnav-item">Key Concepts</div>
+      <div class="leftnav-subitems">
+        <div class="leftnav-item ">
+      <a href="/secure-scuttlebutt" title="Secure Scuttlebutt: a global database protocol">Secure Scuttlebutt: a global database protocol</a>
+    </div>
+        <div class="leftnav-item ">
+      <a href="/docs/ssb/linking.html" title="Content-Hash Linking">Content-Hash Linking</a>
+    </div>
+        <div class="leftnav-item ">
+      <a href="/docs/ssb/secret-handshake.html" title="Secret Handshake: a secure channel protocol">Secret Handshake: a secure channel protocol</a>
+    </div>
+        <div class="leftnav-item ">
+      <a href="/docs/ssb/end-to-end-encryption.html" title="Private Box: metadata-free encryption">Private Box: metadata-free encryption</a>
+    </div>
+        <div class="leftnav-item ">
+      <a href="/docs/ssb/faq.html" title="Frequently Asked Questions">Frequently Asked Questions</a>
+    </div>
+      </div>
+      <div class="leftnav-item">Howto Guides</div>
+      <div class="leftnav-subitems">
+        <div class="leftnav-item ">
+      <a href="/docs/scuttlebot/howto-setup-a-pub.html" title="Setup a Pub">Setup a Pub</a>
+    </div>
+        <div class="leftnav-item ">
+      <a href="/docs/scuttlebot/howto-create-a-js-client.html" title="Create a JS Client">Create a JS Client</a>
+    </div>
+        <div class="leftnav-item ">
+      <a href="/docs/scuttlebot/howto-get-your-id.html" title="Get your ID">Get your ID</a>
+    </div>
+        <div class="leftnav-item ">
+      <a href="/docs/scuttlebot/howto-get-your-address.html" title="Get your Address">Get your Address</a>
+    </div>
+        <div class="leftnav-item ">
+      <a href="/docs/scuttlebot/howto-publish-a-post.html" title="Publish a Post">Publish a Post</a>
+    </div>
+        <div class="leftnav-item ">
+      <a href="/docs/scuttlebot/howto-publish-a-file.html" title="Publish a File">Publish a File</a>
+    </div>
+        <div class="leftnav-item ">
+      <a href="/docs/scuttlebot/howto-publish-encrypted-messages.html" title="Publish Encrypted Messages">Publish Encrypted Messages</a>
+    </div>
+        <div class="leftnav-item ">
+      <a href="/docs/scuttlebot/howto-follow-unfollow.html" title="Follow/Unfollow">Follow/Unfollow</a>
+    </div>
+        <div class="leftnav-item ">
+      <a href="/docs/scuttlebot/howto-announce-a-pub-server.html" title="Announce a Pub Server">Announce a Pub Server</a>
+    </div>
+        <div class="leftnav-item ">
+      <a href="/docs/scuttlebot/howto-create-an-invite.html" title="Create an Invite">Create an Invite</a>
+    </div>
+        <div class="leftnav-item ">
+      <a href="/docs/scuttlebot/howto-use-an-invite.html" title="Use an Invite">Use an Invite</a>
+    </div>
+        <div class="leftnav-item ">
+      <a href="/docs/scuttlebot/howto-update-your-profile.html" title="Update your Profile">Update your Profile</a>
+    </div>
+      </div>
+    </div>
+        <div id="content">
+          <h1 id="ssb-example-whois">SSB Example Whois</h1>
+<p>Example program to lookup petname mappings in ssb</p>
+<pre><code>$ git clone https://github.com/pfraze/ssb-example-whois.git
+$ cd ssb-example-whois
+$ npm install
+
+$ ./ssb-example-whois.js
+   paul *** @hxGxqPrplLjRG2vtjQL87abX4QKqeLgCwQpS730nNwE=.ed25519
+Dominic **  @BIbVppzlrNiRJogxDYz3glUS7G4s4D4NiXiPEAEzxdE=.ed25519
+    bob *   @HSZ7V+Hrm0mbqNGkINtN1CL8VEsY1CDMBu5yPCHg5zI=.ed25519
+    bob *   @PgeunKGJm05DZ0WWoRtGvH37gXMbDnVuse9HhaUT6RI=.ed25519
+
+$ ./ssb-example-whois.js paul
+paul *** @hxGxqPrplLjRG2vtjQL87abX4QKqeLgCwQpS730nNwE=.ed25519
+
+$ ./ssb-example-whois.js bob
+bob *   @HSZ7V+Hrm0mbqNGkINtN1CL8VEsY1CDMBu5yPCHg5zI=.ed25519
+bob *   @PgeunKGJm05DZ0WWoRtGvH37gXMbDnVuse9HhaUT6RI=.ed25519
+</code></pre><p>The stars indicate the amount of trust in the assignment.</p>
+<ul>
+<li>Three stars is full trust, because it&#39;s the name chosen by the local user.</li>
+<li>Two stars is partial trust, because it&#39;s the name chosen by someone the local user follows.</li>
+<li>One star is little trust, because it&#39;s the name chosen by an unfollowed user.</li>
+</ul>
+<p>There are no universal rules for petnames in SSB.
+There is no single registry or authority, so you can choose your own policies and algorithms.</p>
+<h2 id="how-it-works">How it works</h2>
+<p>Users publish a <code>type: about</code> message, which has the following schema:</p>
+<pre><code class="lang-js">{
+  type: &#39;about&#39;,
+  about: FeedLink,
+  name: String
+}
+</code></pre>
+<p>This program uses a very simple set of rules for computing the petname map.
+Only self-assigned names are used.
+The trust ranking is described above.</p>
+<p>The petname map is a &quot;materialized view,&quot; in the <a href="http://www.kappa-architecture.com/">Kappa Architecture</a> semantic.
+It is created by streaming <code>type: about</code> messages, in the order received, into a view-processing function.
+The output is then produced from the map.</p>
+<p>The streaming code:</p>
+<pre><code class="lang-js">// fetch...
+var done = multicb({ pluck: 1, spread: true })
+sbot.whoami(done()) // ...local users id
+sbot.friends.all(&#39;follow&#39;, done()) // ...computed follow-graph
+done(function (err, whoami, follows) {
+  if (err) throw err
+
+  // store in globals
+  _selfId = whoami.id
+  _follows = follows
+
+  pull(
+    // fetch `type: about` messages, in order received
+    sbot.messagesByType(&#39;about&#39;),
+
+    // process each message
+    pull.drain(processAboutMsg, function (err) {
+      if (err) throw err
+
+      // ... render ...
+    })
+  )
+})
+</code></pre>
+<p>The processing function:</p>
+<pre><code class="lang-js">// `type: about` message processor
+// - expected schema: { type: &#39;about&#39;, name: String, about: FeedLink }
+function processAboutMsg (msg) {
+  var c = msg.value.content
+
+  // sanity check
+  if (!nonEmptyStr(c.name))
+    return
+
+  // only process self-assignments
+  var target = mlib.link(c.about, &#39;feed&#39;)
+  if (!target || target.link !== msg.value.author)
+    return
+
+  // remove any past assignments by this user
+  for (var k in _names)
+    _names[k] = _names[k].filter(function (entry) { return entry.id !== target.link })
+
+  // store the new assignment
+  var name = makeNameSafe(c.name)
+  _names[name] = _names[name] || []
+  _names[name].push({
+    id:    target.link,
+    name:  name,
+    trust: rateTrust(msg)
+  })
+}
+
+// trust-policy
+function rateTrust (msg) {
+  // is local user: high trust
+  if (msg.value.author === _selfId)
+    return 3
+  // followed by local user: medium trust
+  if (_follows[_selfId][msg.value.author])
+    return 2
+  // otherwise: low trust
+  return 1
+}
+</code></pre>
+
+        </div>
+      </div>
+    </body>
+  </html>
