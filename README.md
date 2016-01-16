@@ -3,7 +3,7 @@
 Example program to lookup petname mappings in ssb
 
 ```
-$ git clone https://github.com/pfraze/ssb-example-whois.git
+$ git clone https://github.com/ssbc/ssb-example-whois.git
 $ cd ssb-example-whois
 $ npm install
 
