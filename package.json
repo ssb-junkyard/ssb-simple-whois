@@ -1,5 +1,5 @@
 {
-  "name": "ssb-example-whois",
+  "name": "ssb-simple-whois",
   "version": "1.0.0",
   "description": "Example program to lookup petname mappings in ssb",
   "main": "index.js",
