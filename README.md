@@ -1,22 +1,22 @@
-# SSB Example Whois
+# SSB Simple Whois
 
-Example program to lookup petname mappings in ssb
+Simple program to lookup petname mappings in ssb
 
 ```
-$ git clone https://github.com/ssbc/ssb-example-whois.git
-$ cd ssb-example-whois
+$ git clone https://github.com/ssbc/ssb-simple-whois.git
+$ cd ssb-simple-whois
 $ npm install
 
-$ ./ssb-example-whois.js
+$ ./ssb-simple-whois.js
    paul *** @hxGxqPrplLjRG2vtjQL87abX4QKqeLgCwQpS730nNwE=.ed25519
 Dominic **  @BIbVppzlrNiRJogxDYz3glUS7G4s4D4NiXiPEAEzxdE=.ed25519
     bob *   @HSZ7V+Hrm0mbqNGkINtN1CL8VEsY1CDMBu5yPCHg5zI=.ed25519
     bob *   @PgeunKGJm05DZ0WWoRtGvH37gXMbDnVuse9HhaUT6RI=.ed25519
 
-$ ./ssb-example-whois.js paul
+$ ./ssb-simple-whois.js paul
 paul *** @hxGxqPrplLjRG2vtjQL87abX4QKqeLgCwQpS730nNwE=.ed25519
 
-$ ./ssb-example-whois.js bob
+$ ./ssb-simple-whois.js bob
 bob *   @HSZ7V+Hrm0mbqNGkINtN1CL8VEsY1CDMBu5yPCHg5zI=.ed25519
 bob *   @PgeunKGJm05DZ0WWoRtGvH37gXMbDnVuse9HhaUT6RI=.ed25519
 ```
